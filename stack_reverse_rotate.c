@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 16:52:24 by username          #+#    #+#             */
-/*   Updated: 2026/08/06 17:02:59 by mszkudla         ###   ########.fr       */
+/*   Created: 2026/08/06 16:52:21 by username          #+#    #+#             */
+/*   Updated: 2026/08/06 17:15:16 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack *stack)
+static void	reverse_rotate(t_stack *stack)
 {
-	t_node	*first;
+	t_node	*last;
 
 	if (stack->size < 2)
 		return ;
-	first = stack->top;
-	stack->top = first->next;
-	stack->top->prev = NULL;
-	first->next = NULL;
-	first->prev = stack->bottom;
-	stack->bottom->next = first;
-	stack->bottom = first;
+	last = stack->bottom;
+	stack->bottom = last->prev;
+	stack->bottom->next = NULL;
+	last->prev = NULL;
+	last->next = stack->top;
+	stack->top->prev = last;
+	stack->top = last;
 }
 
-void	ra(t_stack *a)
+void	rra(t_stack *a)
 {
-	rotate(a);
-	write(1, "ra\n", 3);
+	reverse_rotate(a);
+	write(1, "rra\n", 4);
 }
 
-void	rb(t_stack *b)
+void	rrb(t_stack *b)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	reverse_rotate(b);
+	write(1, "rrb\n", 4);
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 3);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	write(1, "rrr\n", 4);
 }
