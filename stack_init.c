@@ -1,24 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 15:31:19 by username          #+#    #+#             */
+/*   Updated: 2026/08/06 17:05:20 by mszkudla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void stack_init(t_node **stack, int *arr, int size)
+void	stack_init(t_stack *stack)
 {
-    int i;
-
-    i = 0;
-    while (i < size)
-    {
-        append_node(stack, arr[i]);
-        i++;
-    }
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
 }
 
-int main(void)
+int	stack_fill(t_stack *stack, int *arr, int size)
 {
-    int arr[] = {5, 8, 42, 90, 435};
-    t_node *stack;
+	int	i;
 
-    stack = NULL;
-    stack_init(&stack, arr, 5);
-    print_stack(stack);
-    return (0);
+	i = 0;
+	while (i < size)
+	{
+		if (!append_node(stack, arr[i]))
+		{
+			clear_stack(stack);
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

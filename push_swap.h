@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/05 22:32:53 by mszkudla         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   push_swap.h                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/08/03 19:16:01 by username         #+#    #+#              */
+/*   Updated: 2026/08/06 17:36:00 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
-#include <stdio.h>
+# define PUSH_SWAP_H
+# include <stdio.h>
+# include <unistd.h>
+
 typedef struct s_node
 {
 	int				value;
@@ -22,12 +24,29 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-    t_node  *top;
-    int     size;
-}   t_stack;
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+}	t_stack;
 
-void stack_init(t_node **stack, int *arr, int size);
-void append_node(t_node **stack, int num);
-void print_stack(t_node *stack);
-
+void	stack_init(t_stack *stack);
+int		stack_fill(t_stack *stack, int *arr, int size);
+int		append_node(t_stack *stack, int value);
+void	clear_stack(t_stack *stack);
+void	print_stack(t_stack *stack);
+// swap operations
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+// push operations
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+// rotate operations
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+// reverse rotate operations
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 #endif
