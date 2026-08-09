@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/08/06 16:15:27 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/09 22:46:22 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	clear_stack(t_stack *stack)
 {
 	t_node	*node;
 	t_node	*next;
-	int		i;
 
 	node = stack->top;
 	while (node)
@@ -56,13 +55,12 @@ void	clear_stack(t_stack *stack)
 void	print_stack(t_stack *stack)
 {
 	t_node	*node;
-	int		i;
 
 	node = stack->top;
 	while (node)
 	{
-		printf("%d ", node->value);
+		ft_printf("%d ", node->value);
 		node = node->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }

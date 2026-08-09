@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/08 12:37:27 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/08 12:37:27 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/09 22:15:24 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/09 22:15:24 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main(int argc, char **argv)
 
     if (argc == 1)
     {
-        return
+        return (ft_printf("more argument"));
     }
+	else
+		return (ft_printf("good"));
 }
