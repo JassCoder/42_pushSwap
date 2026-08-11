@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 17:46:51 by username          #+#    #+#             */
-/*   Updated: 2026/08/11 14:29:21 by mszkudla         ###   ########.fr       */
+/*   Created: 2026/08/11 13:35:09 by username          #+#    #+#             */
+/*   Updated: 2026/08/11 14:35:28 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+void	bubble_sort(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
+	int	i;
+	int	n;
 
-	int	arr[] =
+	n = a->size;
+	while (n > 1)
 	{
-		42, 643, 24, 64, 72, 4124, 75, 884, 1534, 65, 7
-	};
-	stack_init(&a);
-	stack_init(&b);
-	stack_fill(&a, arr, 10);
-	print_stack(&a);
-	bubble_sort(&a, &b);
-	print_stack(&a);
+		i = 0;
+		while (i < n - 1)
+		{
+			if (a->top->value > a->top->next->value)
+				sa(a);
+			pb(a, b);
+			i++;
+		}
+		while (i > 0)
+		{
+			pa(a, b);
+			i--;
+		}
+		n--;
+	}
 }
