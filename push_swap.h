@@ -6,7 +6,7 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/11 14:29:35 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/11 18:10:16 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ typedef struct s_stack
 	t_node	*bottom;
 	int		size;
 }	t_stack;
+
+// parsing
+char    **ft_split(char *str, char c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int	get_flags(int argc, char **argv, int *bench_mode);
 
 void	stack_init(t_stack *stack);
 int		stack_fill(t_stack *stack, int *arr, int size);
