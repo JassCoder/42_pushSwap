@@ -6,7 +6,7 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:46:51 by username          #+#    #+#             */
-/*   Updated: 2026/08/06 17:53:06 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/11 14:29:21 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	main(void)
 	stack_init(&b);
 	stack_fill(&a, arr, 10);
 	print_stack(&a);
-	pb(&a, &b);
-	pb(&a, &b);
+	bubble_sort(&a, &b);
 	print_stack(&a);
-	print_stack(&b);
 }

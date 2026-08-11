@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/08 14:09:43 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/11 14:29:35 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,7 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+// sorting algorythms
+
+void	bubble_sort(t_stack *a, t_stack *b);
 #endif
