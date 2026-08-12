@@ -6,7 +6,7 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 17:46:51 by username          #+#    #+#             */
-/*   Updated: 2026/08/11 14:29:21 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/12 14:44:49 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(void)
 	stack_init(&b);
 	stack_fill(&a, arr, 10);
 	print_stack(&a);
-	bubble_sort(&a, &b);
+	printf("disorder: %f\n", compute_disorder(&a));
+	selection_sort(&a, &b);
 	print_stack(&a);
 }
