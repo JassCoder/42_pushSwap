@@ -6,7 +6,7 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/12 14:34:50 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:24:34 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -60,4 +61,5 @@ void	rrr(t_stack *a, t_stack *b);
 // sorting algorythms
 
 void	selection_sort(t_stack *a, t_stack *b);
+void	chunk_sort(t_stack *a, t_stack *b);
 #endif
