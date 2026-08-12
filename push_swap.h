@@ -6,13 +6,13 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/12 14:00:58 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/12 14:34:50 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-//# include <stdio.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
@@ -59,5 +59,5 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 // sorting algorythms
 
-void	bubble_sort(t_stack *a, t_stack *b);
+void	selection_sort(t_stack *a, t_stack *b);
 #endif
