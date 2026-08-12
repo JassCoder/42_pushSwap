@@ -6,13 +6,13 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/11 18:10:16 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/12 14:00:58 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-// # include <stdio.h>
+//# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
@@ -32,15 +32,16 @@ typedef struct s_stack
 }	t_stack;
 
 // parsing
-char    **ft_split(char *str, char c);
+char	**ft_split(char *str, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-int	get_flags(int argc, char **argv, int *bench_mode);
+int		get_flags(int argc, char **argv, int *bench_mode);
 
 void	stack_init(t_stack *stack);
 int		stack_fill(t_stack *stack, int *arr, int size);
 int		append_node(t_stack *stack, int value);
 void	clear_stack(t_stack *stack);
 void	print_stack(t_stack *stack);
+float	compute_disorder(t_stack *stack);
 // swap operations
 void	sa(t_stack *a);
 void	sb(t_stack *b);
