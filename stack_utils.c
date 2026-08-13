@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/08/09 22:46:22 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/12 15:43:27 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	append_node(t_stack *stack, int value)
 	if (!new)
 		return (0);
 	new->value = value;
+	new->index = -1;
 	new->next = NULL;
 	new->prev = stack->bottom;
 	if (stack->top == NULL)
@@ -59,7 +60,7 @@ void	print_stack(t_stack *stack)
 	node = stack->top;
 	while (node)
 	{
-		ft_printf("%d ", node->value);
+		ft_printf("val:%d i:%d\n", node->value, node->index);
 		node = node->next;
 	}
 	ft_printf("\n");
