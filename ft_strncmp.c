@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/12 19:28:38 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/12 19:28:38 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/12 19:17:59 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/12 19:17:59 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int ft_strcmp(char *s1, char *s2, size_t len)
 {
-	size_t	i;
-	size_t	src_len;
+    int i;
 
-	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	if (size == 0)
-		return (src_len);
-	i = 0;
-	while (i < (size - 1) && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
+    i = 0;
+    while (i < len && s1[i] && s2[i] && s1[i] == s2[i])
+        i++;
+    if (i == len)
+        return (0);
+    return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
