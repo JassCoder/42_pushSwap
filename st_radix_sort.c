@@ -1,36 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_arg.c                                         :+:      :+:    :+:   */
+/*   st_radix_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 22:15:24 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/09 22:15:24 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/13 19:49:32 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/13 19:49:32 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
-{
-    t_stack a;
-    t_stack b;
-
-    a.top = NULL;
-    a.size = 0;
-    b.top = NULL;
-    b.size = 0;
-    
-
-    if (argc == 1)
-        return (0);
-    stack_init(&a);
-    stack_init(&b);
-    
-    (void)argv;
-
-    clear_stack(&a);
-    clear_stack(&b);
-    return (0);
-}

@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 23:09:22 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/10 00:01:02 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/13 13:57:45 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int	get_flags(int argc, char **argv, int *bench_mode)
 		if (ft_strncmp(argv[i] , "--bench", 7) == 0)
 			*bench_mode = 1;
 		else
-			break;
+		{
+			ft_printf("Error: Unknown flag %s\n", argv[i]);
+			return (-1);
+        }
 		i++;	
 	}
 	return (strategy);

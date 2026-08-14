@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/12 16:24:34 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/13 12:35:57 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_stack
 // parsing
 char	**ft_split(char *str, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int		strncmp(const char *s1, const char *s2, size_t len);
 int		get_flags(int argc, char **argv, int *bench_mode);
 
 void	stack_init(t_stack *stack);
