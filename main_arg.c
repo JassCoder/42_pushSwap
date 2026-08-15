@@ -14,15 +14,23 @@
 
 int main(int argc, char **argv)
 {
+    // ! empty stack
     t_stack a;
     t_stack b;
+    int strategy;
+    int bench_mode;
 
+    // ! check argument
     if (argc == 1)
-    {
-        return (ft_printf("Hey add some numbers for sort -<>-\n"));
-    }
-	else
-	{
-        
-    }
+    return (0);
+    // ! initialize stack
+    stack_init(&a);
+    stack_init(&b);
+    // ! checking sorting strategy (By default its adaptive)
+    strategy = get_flags(argc, argv, &bench_mode);
+
+    // ! clear at last
+    clear_stack(&a);
+    clear_stack(&b);
+    return (0);
 }
