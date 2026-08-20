@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/15 01:17:41 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/15 01:17:41 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/20 18:44:43 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/20 18:44:43 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
-
-static  int flag_check(int argc, char **argv)
+int is_valid_integer(char *str)
 {
     int i;
 
-    i = 1;
-    if (ft_strncmp(argv[i],"--", 2) == 0)
+    if (!str || !str[0])
         return (0);
-    else
-        return (1);
-}
-
-int parse_arg(int argc, char **argv)
-{
-    int     i;
-    int     j;
-
-    i = 1;
-    while (i < argc)
+    i = 0;
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    if (!str[i])
+        return (0);
+    while (str[i])
     {
-        j = 0;
-        if (ft_strncmp(argv[i], "--", 2) == 0)
-
-
+        if (str[i] >= '0' && str[i] <= '9')
+            return (0);
+        i++;
     }
-    
+    return (1);
 }

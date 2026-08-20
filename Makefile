@@ -23,7 +23,8 @@ LDFLAGS = -L$(FT_PRINTF_DIR) -lftprintf
 SRCS = 	main.c \
 		stack_init.c stack_push.c \
 		stack_rotate.c stack_reverse_rotate.c \
-		stack_utils.c stack_disorder.c
+		stack_utils.c stack_disorder.c \
+		ft_utils_1.c
 
 OBJS = $(SRCS:.c=.o)
 

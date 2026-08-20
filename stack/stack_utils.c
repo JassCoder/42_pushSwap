@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/08/12 15:43:27 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/20 17:54:30 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
+
 
 int	append_node(t_stack *stack, int value)
 {
@@ -19,12 +19,11 @@ int	append_node(t_stack *stack, int value)
 
 	new = malloc(sizeof(t_node));
 	if (!new)
-		return (0);
+		return(0);
 	new->value = value;
 	new->index = -1;
 	new->next = NULL;
-	new->prev = stack->bottom;
-	if (stack->top == NULL)
+	if (stack->size == 0)
 	{
 		stack->top = new;
 		stack->bottom = new;

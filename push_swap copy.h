@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/20 20:05:34 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/20 14:59:22 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,37 @@ typedef struct s_config
 	t_strategy	strategy;
 	int			bench;
 }	t_config;
-/* stack */
-void	stack_init(t_stack *stack);
-void	clear_stack(t_stack *stack);
-/* Stack Utils*/
-int		append_node(t_stack *stack, int value);
-/* Parsing */
-void	config_init(t_config *config);
-int		parse_flag(char *arg, t_config *config);
-int		is_valid_integer(char *str);
-long	ft_atol(const char *str);
-int		is_int_range(long value);
-int		has_duplicate(t_stack *stack, int value);
-int		parse_one_number(char *token, t_stack *a);
-int		parse_number_group(char *arg, t_stack *a);
+// parsing
 char	**ft_split(char *str, char c);
-void	free_split(char **tokens);
-int		parse_args(int argc, char **argv, t_stack *a, t_config *config);
-/**/
+int		ft_strncmp(char *s1, char *s2, size_t len);
+int		get_flags(int argc, char **argv, int *bench_mode);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+long	atol(const char *str);
+void	free_split(char **split);
+
+void	stack_init(t_stack *stack);
+int		stack_fill(t_stack *stack, int *arr, int size);
+int		append_node(t_stack *stack, int value);
+void	clear_stack(t_stack *stack);
+void	print_stack(t_stack *stack);
+float	compute_disorder(t_stack *stack);
+// swap operations
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+// push operations
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+// rotate operations
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+// reverse rotate operations
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+// sorting algorythms
+
+void	selection_sort(t_stack *a, t_stack *b);
+void	chunk_sort(t_stack *a, t_stack *b);
 #endif
