@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 16:52:21 by username          #+#    #+#             */
-/*   Updated: 2026/08/06 17:15:16 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:54:29 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	reverse_rotate(t_stack *stack)
 void	rra(t_stack *a)
 {
 	reverse_rotate(a);
+	a->op->rra++;
 	write(1, "rra\n", 4);
 }
 
