@@ -15,11 +15,11 @@
 int parse_one_number(char *token, t_stack *a)
 {
     long    value;
-
+    
     if (!is_valid_integer(token))
         return (0);
     value = ft_atol(token);
-    if (!is_int_range(token))
+    if (!is_int_range(value))
         return (0);
     if (has_duplicate(a, (int)value))
         return (0);

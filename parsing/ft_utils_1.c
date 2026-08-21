@@ -34,7 +34,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 int	ft_strncmp(char *s1, char *s2, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < len && s1[i] && s2[i] && s1[i] == s2[i])

@@ -12,22 +12,39 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+static void	print_test(t_stack *a)
 {
-    t_stack a;
-    t_stack b;
-    int strategy;
-    int bench_mode;
+	t_node	*current;
 
-    strategy = 3 || ; 
-    bench_mode = 0; 
+	current = a->top;
+	while (current)
+	{
+		ft_printf("%d\n", current->value);
+		current = current->next;
+	}
+}
 
-    if (argc == 1)
-        return (0);
-    stack_init(&a);
-    stack_init(&b);
-    // strategy = get_flags(argc, argv, &bench_mode);
-    clear_stack(&a);
-    clear_stack(&b);
-    return (0);
+int	main(int argc, char **argv)
+{
+	t_stack		a;
+	t_stack		b;
+	t_config	config;
+
+	if (argc == 1)
+		return (0);
+	stack_init(&a);
+	stack_init(&b);
+	config_init(&config);
+	if (!parse_args(argc, argv, &a, &config))
+	{
+		clear_stack(&a);
+		clear_stack(&b);
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	print_test(&a);
+	ft_printf("Strategy = %d\n", config.strategy);
+	clear_stack(&a);
+	clear_stack(&b);
+	return (0);
 }

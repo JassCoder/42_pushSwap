@@ -47,7 +47,7 @@ static size_t	char_len(char *str, char c)
 	return (len);
 }
 
-static void	free_split(char **array, int i)
+static void	free_space(char **array, int i)
 {
 	while (i >= 0)
 	{
@@ -71,7 +71,7 @@ static char	**fill_array(char *str, char c, char **array, size_t token)
 		array[i] = malloc(len + 1);
 		if (!array[i])
 		{
-			free_split(array, i - 1);
+			free_space(array, i - 1);
 			return (NULL);
 		}
 		ft_strlcpy(array[i], str, (len + 1));

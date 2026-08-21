@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/08/20 17:54:30 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/21 13:45:04 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,6 @@ int	append_node(t_stack *stack, int value)
 	}
 	stack->size++;
 	return (1);
-}
-
-void	clear_stack(t_stack *stack)
-{
-	t_node	*node;
-	t_node	*next;
-
-	node = stack->top;
-	while (node)
-	{
-		next = node->next;
-		free(node);
-		node = next;
-	}
-	stack_init(stack);
 }
 
 void	print_stack(t_stack *stack)
