@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/21 13:41:03 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/26 22:51:58 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,29 @@ typedef enum e_strategy
 	ADAPTIVE
 }	t_strategy;
 
+typedef struct s_bench
+{
+	int	total;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}	t_bench;
+
 typedef struct s_config
 {
 	t_strategy	strategy;
 	int			bench;
+	t_bench		count;
 }	t_config;
+
 /* stack */
 void	stack_init(t_stack *stack);
 void	clear_stack(t_stack *stack);
@@ -62,5 +80,10 @@ int		ft_strncmp(char *s1, char *s2, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	free_split(char **tokens);
 int		parse_args(int argc, char **argv, t_stack *a, t_config *config);
-/**/
+/*Benchmark*/
+void	bench_init(t_bench *count);
+/*Operations*/
+void	sa(t_stack *a, t_bench *bench);
+void	sb(t_stack *b, t_bench *bench);
+void	ss(t_stack	*a, t_stack *b, t_bench *bench);
 #endif

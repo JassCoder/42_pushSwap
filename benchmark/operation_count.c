@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   operation_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 18:25:11 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/20 18:25:11 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/21 18:34:53 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/21 18:34:53 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear_stack(t_stack *stack)
+void    bench_init(t_bench *bench)
 {
-	t_node	*current;
-	t_node	*next;
-
-	current = stack->top;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	stack->top = NULL;
-	stack->bottom = NULL;
-	stack->size = 0;
+    bench->total = 0;
+    bench->sa = 0;
+    bench->sb = 0;
+    bench->ss = 0;
+    bench->pa = 0;
+    bench->pb = 0;
+    bench->rr = 0;
+    bench->ra = 0;
+    bench->rb = 0;
+    bench->rra = 0;
+    bench->rrb = 0;
+    bench->rrr = 0;
 }

@@ -6,12 +6,11 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/08/21 13:45:04 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/26 22:52:53 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	append_node(t_stack *stack, int value)
 {
@@ -19,7 +18,7 @@ int	append_node(t_stack *stack, int value)
 
 	new = malloc(sizeof(t_node));
 	if (!new)
-		return(0);
+		return (0);
 	new->value = value;
 	new->index = -1;
 	new->next = NULL;
