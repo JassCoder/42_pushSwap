@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/26 22:51:58 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/27 17:44:51 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,13 @@ void	free_split(char **tokens);
 int		parse_args(int argc, char **argv, t_stack *a, t_config *config);
 /*Benchmark*/
 void	bench_init(t_bench *count);
-/*Operations*/
+/*Operations swap / push / Rotate */
 void	sa(t_stack *a, t_bench *bench);
 void	sb(t_stack *b, t_bench *bench);
 void	ss(t_stack	*a, t_stack *b, t_bench *bench);
+void	pb(t_stack *a, t_stack *b, t_bench *bench);
+void	pa(t_stack *b, t_stack *a, t_bench *bench);
+void	ra(t_stack *a, t_bench *bench);
+void	rb(t_stack *b, t_bench *bench);
+void	rr(t_stack *a, t_stack *b, t_bench *bench);
 #endif

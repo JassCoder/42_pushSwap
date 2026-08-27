@@ -42,8 +42,22 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	pb(&a, &b, &config.count);
+	pb(&a, &b, &config.count);
+
+	ft_printf("A BEFORE RR:\n");
 	print_test(&a);
-	ft_printf("Strategy = %d\n", config.strategy);
+
+	ft_printf("B BEFORE RR:\n");
+	print_test(&b);
+
+	rr(&a, &b, &config.count);
+
+	ft_printf("A AFTER RR:\n");
+	print_test(&a);
+
+	ft_printf("B AFTER RR:\n");
+	print_test(&b);
 	clear_stack(&a);
 	clear_stack(&b);
 	return (0);

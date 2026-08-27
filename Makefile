@@ -30,7 +30,11 @@ SRCS =	main.c \
 		stack/stack_init.c \
 		stack/stack_utils.c \
 		stack/stack_free.c \
-		parsing/ft_split.c 
+		parsing/ft_split.c \
+		operations/swap.c \
+		operations/push.c \
+		operations/rotate.c \
+		benchmark/operation_count.c \
 
 OBJS = $(SRCS:.c=.o)
 
