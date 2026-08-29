@@ -39,3 +39,29 @@ void    rra(t_stack *a, t_bench *bench)
         bench->total++;
     }
 }
+void    rrb(t_stack *b, t_bench *bench)
+{
+    if (reverse_rotate_raw(b))
+    {
+        write(1, "rrb\n", 4);
+        bench->rrb++;
+        bench->total++;
+    }
+}
+
+void    rrr(t_stack *a, t_stack *b, t_bench *bench)
+{
+    int changed;
+
+    changed = 0;
+    if (reverse_rotate_raw(a))
+        changed = 1;
+    if (reverse_rotate_raw(b))
+        changed = 1;
+    if (changed)
+    {
+        write(1, "rrr\n", 4);
+        bench->rrr++;
+        bench->total++;
+    }
+}

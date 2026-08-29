@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/08/27 17:44:51 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/08/28 22:44:03 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,11 @@ void	pa(t_stack *b, t_stack *a, t_bench *bench);
 void	ra(t_stack *a, t_bench *bench);
 void	rb(t_stack *b, t_bench *bench);
 void	rr(t_stack *a, t_stack *b, t_bench *bench);
+void    rra(t_stack *a, t_bench *bench);
+void    rrb(t_stack *b, t_bench *bench);
+void    rrr(t_stack *a, t_stack *b, t_bench *bench);
+/* Analysis */
+int		is_sorted(t_stack *stack);
+double	calculate_disorder(t_stack *stack);
+void	assign_index(t_stack *stack);
 #endif

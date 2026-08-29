@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/08/08 13:48:53 by jsingh            #+#    #+#              #
-#    Updated: 2026/08/08 13:48:53 by jsingh           ###   ########.fr        #
+#    Created: 2026/08/28 10:40:28 by jsingh            #+#    #+#              #
+#    Updated: 2026/08/28 10:40:28 by jsingh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,10 @@ SRCS =	main.c \
 		operations/swap.c \
 		operations/push.c \
 		operations/rotate.c \
+		operations/reverse_rotate.c \
+		analysis/is_sorted.c \
+		analysis/disorder.c \
+		analysis/assign_index.c \
 		benchmark/operation_count.c \
 
 OBJS = $(SRCS:.c=.o)

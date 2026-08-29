@@ -24,6 +24,19 @@ static void	print_test(t_stack *a)
 	}
 }
 
+static void	print_index_test(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while (current)
+	{
+		ft_printf("value: %d index: %d\n",
+			current->value, current->index);
+		current = current->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack		a;
@@ -42,22 +55,11 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	pb(&a, &b, &config.count);
-	pb(&a, &b, &config.count);
-
-	ft_printf("A BEFORE RR:\n");
+	print_test(&a);
+	assign_index(&a);
+	print_index_test(&a);
 	print_test(&a);
 
-	ft_printf("B BEFORE RR:\n");
-	print_test(&b);
-
-	rr(&a, &b, &config.count);
-
-	ft_printf("A AFTER RR:\n");
-	print_test(&a);
-
-	ft_printf("B AFTER RR:\n");
-	print_test(&b);
 	clear_stack(&a);
 	clear_stack(&b);
 	return (0);
