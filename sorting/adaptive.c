@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/28 23:08:07 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/28 23:08:07 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/30 23:33:15 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/30 23:33:15 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min_value(t_stack *stack)
+void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
-    int     min;
-    t_node  *node;
+	double	disorder;
+
+	disorder = calculate_disorder(a);
+	if (disorder < 0.20)
+		simple_sort(a, b, bench);
+	else if (disorder < 0.50)
+		medium_sort(a, b, bench);
+	else
+		complex_sort(a, b, bench);
 }

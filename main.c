@@ -19,22 +19,10 @@ static void	print_test(t_stack *a)
 	current = a->top;
 	while (current)
 	{
-		ft_printf("%d\n", current->value);
+		ft_printf("%d < ", current->value);
 		current = current->next;
 	}
-}
-
-static void	print_index_test(t_stack *stack)
-{
-	t_node	*current;
-
-	current = stack->top;
-	while (current)
-	{
-		ft_printf("value: %d index: %d\n",
-			current->value, current->index);
-		current = current->next;
-	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -56,9 +44,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	print_test(&a);
-	assign_index(&a);
-	print_index_test(&a);
+	simple_sort(&a, &b, &config.count);
 	print_test(&a);
+	ft_printf("total operations %d\n", config.count.total);
 
 	clear_stack(&a);
 	clear_stack(&b);

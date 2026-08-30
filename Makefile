@@ -35,10 +35,14 @@ SRCS =	main.c \
 		operations/push.c \
 		operations/rotate.c \
 		operations/reverse_rotate.c \
+		benchmark/operation_count.c \
 		analysis/is_sorted.c \
 		analysis/disorder.c \
 		analysis/assign_index.c \
-		benchmark/operation_count.c \
+		sorting/simple.c \
+		sorting/medium.c \
+		sorting/complex.c \
+		sorting/adaptive.c \
 
 OBJS = $(SRCS:.c=.o)
 
