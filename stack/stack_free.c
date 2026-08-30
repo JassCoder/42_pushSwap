@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   stack_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/12 19:28:38 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/12 19:28:38 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/20 18:25:11 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/20 18:25:11 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	clear_stack(t_stack *stack)
 {
-	size_t	i;
-	size_t	src_len;
+	t_node	*current;
+	t_node	*next;
 
-	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	if (size == 0)
-		return (src_len);
-	i = 0;
-	while (i < (size - 1) && src[i])
+	current = stack->top;
+	while (current)
 	{
-		dst[i] = src[i];
-		i++;
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	dst[i] = '\0';
-	return (src_len);
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
 }

@@ -1,31 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 17:46:51 by username          #+#    #+#             */
-/*   Updated: 2026/08/12 16:28:24 by mszkudla         ###   ########.fr       */
+/*   Created: 2026/08/09 22:15:24 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/09 22:15:24 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+static void	print_test(t_stack *a)
 {
-	t_stack	a;
-	t_stack	b;
+	t_node	*current;
 
-	int	arr[] =
+	current = a->top;
+	while (current)
 	{
-		47, 892, 134, 55, 621, 3, 409, 788, 12, 530, 991, 245, 67, 312, 804, 519, 90, 411, 628, 15, 733, 389, 502, 94, 215, 483, 610, 77, 305, 899, 42, 156, 720, 934, 281, 654, 8, 492, 361, 915, 53, 227, 846, 119, 672, 380, 99, 741, 405, 590, 24, 811, 463, 138, 927, 335, 604, 762, 49, 288, 512, 83, 394, 695, 950, 171, 420, 633, 9, 874, 318, 559, 72, 203, 641, 890, 36, 481, 933, 145, 618, 275, 509, 782, 96, 412, 660, 220, 805, 347, 571, 11, 715, 452, 982, 290, 638, 839, 550, 182
-	};
+		ft_printf("%d < ", current->value);
+		current = current->next;
+	}
+	ft_printf("\n");
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack		a;
+	t_stack		b;
+	t_config	config;
+
+	if (argc == 1)
+		return (0);
 	stack_init(&a);
 	stack_init(&b);
-	stack_fill(&a, arr, 100);
-	// print_stack(&a);
-	// printf("disorder: %f\n", compute_disorder(&a));
-	chunk_sort(&a, &b);
-	// print_stack(&a);
+	config_init(&config);
+	if (!parse_args(argc, argv, &a, &config))
+	{
+		clear_stack(&a);
+		clear_stack(&b);
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	print_test(&a);
+	simple_sort(&a, &b, &config.count);
+	print_test(&a);
+	ft_printf("total operations %d\n", config.count.total);
+
+	clear_stack(&a);
+	clear_stack(&b);
+	return (0);
 }

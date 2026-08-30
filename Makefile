@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/08/08 13:48:53 by jsingh            #+#    #+#              #
-#    Updated: 2026/08/08 13:48:53 by jsingh           ###   ########.fr        #
+#    Created: 2026/08/28 10:40:28 by jsingh            #+#    #+#              #
+#    Updated: 2026/08/28 10:40:28 by jsingh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,32 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I$(FT_PRINTF_DIR)
+INCLUDES = -I. -I$(FT_PRINTF_DIR)
 LDFLAGS = -L$(FT_PRINTF_DIR) -lftprintf
 
-SRCS = 	main.c \
-		stack_init.c stack_push.c \
-		stack_rotate.c stack_reverse_rotate.c \
-		stack_utils.c stack_disorder.c
+SRCS =	main.c \
+		parsing/parse_args.c \
+		parsing/parse_flags.c \
+		parsing/parse_utils.c \
+		parsing/parse_free.c \
+		parsing/validate.c \
+		parsing/ft_utils_1.c \
+		stack/stack_init.c \
+		stack/stack_utils.c \
+		stack/stack_free.c \
+		parsing/ft_split.c \
+		operations/swap.c \
+		operations/push.c \
+		operations/rotate.c \
+		operations/reverse_rotate.c \
+		benchmark/operation_count.c \
+		analysis/is_sorted.c \
+		analysis/disorder.c \
+		analysis/assign_index.c \
+		sorting/simple.c \
+		sorting/medium.c \
+		sorting/complex.c \
+		sorting/adaptive.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -51,6 +70,6 @@ fclean: clean
 re: fclean all
 
 test: $(FT_PRINTF_LIB)
-		$(CC) main_arg.c $(LDFLAGS) -I$(FT_PRINTF_DIR) -o test_push_swap
+		$(CC) main.c $(LDFLAGS) -I$(FT_PRINTF_DIR) -o test_push_swap
 
 .PHONY: all clean fclean re

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/12 19:17:59 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/12 19:17:59 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/28 10:34:12 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/28 10:34:12 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strcmp(char *s1, char *s2, size_t len)
+int	is_sorted(t_stack *stack)
 {
-    int i;
+	t_node	*current;
 
-    i = 0;
-    while (i < len && s1[i] && s2[i] && s1[i] == s2[i])
-        i++;
-    if (i == len)
-        return (0);
-    return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	if (!stack || stack->size < 2)
+		return (0);
+	current = stack->top;
+	while (current)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

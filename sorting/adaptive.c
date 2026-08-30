@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_split.c                                       :+:      :+:    :+:   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/15 06:57:44 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/15 06:57:44 by jsingh           ###   ########.fr       */
+/*   Created: 2026/08/30 23:33:15 by jsingh            #+#    #+#             */
+/*   Updated: 2026/08/30 23:33:15 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **split)
+void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
-	int	i;
+	double	disorder;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	disorder = calculate_disorder(a);
+	if (disorder < 0.20)
+		simple_sort(a, b, bench);
+	else if (disorder < 0.50)
+		medium_sort(a, b, bench);
+	else
+		complex_sort(a, b, bench);
 }
