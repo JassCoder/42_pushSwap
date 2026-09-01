@@ -12,17 +12,18 @@
 
 #include "push_swap.h"
 
-static void	print_test(t_stack *a)
-{
-	t_node	*current;
+#include "push_swap.h"
 
-	current = a->top;
-	while (current)
-	{
-		ft_printf("%d < ", current->value);
-		current = current->next;
-	}
-	ft_printf("\n");
+static void	run_strategy(t_stack *a, t_stack *b, t_config *config)
+{
+	if (config->strategy == SIMPLE)
+		simple_sort(a, b, &config->count);
+	else if (config->strategy == MEDIUM)
+		medium_sort(a, b, &config->count);
+	else if (config->strategy == COMPLEX)
+		complex_sort(a, b, &config->count);
+	else
+		adaptive_sort(a, b, &config->count);
 }
 
 int	main(int argc, char **argv)
@@ -30,6 +31,7 @@ int	main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 	t_config	config;
+	double		disorder;
 
 	if (argc == 1)
 		return (0);
@@ -43,11 +45,11 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	print_test(&a);
-	simple_sort(&a, &b, &config.count);
-	print_test(&a);
-	ft_printf("total operations %d\n", config.count.total);
-
+	disorder = calculate_disorder(&a);
+	if (!is_sorted(&a))
+		run_strategy(&a, &b, &config);
+	if (config.bench)
+		print_benchmark(&config, disorder);
 	clear_stack(&a);
 	clear_stack(&b);
 	return (0);
