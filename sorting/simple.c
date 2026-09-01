@@ -12,31 +12,48 @@
 
 #include "push_swap.h"
 
-static int	find_min_value(t_stack *stack)
+static int	find_min_position(t_stack *a)
 {
-	int		min;
 	t_node	*node;
+	int		min;
+	int		min_pos;
+	int		pos;
 
-	node = stack->top;
+	node = a->top;
 	min = node->value;
+	min_pos = 0;
+	pos = 0;
 	while (node)
 	{
 		if (node->value < min)
+		{
 			min = node->value;
+			min_pos = pos;
+		}
 		node = node->next;
+		pos++;
 	}
-	return (min);
+	return (min_pos);
 }
 
 void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
-	int	min;
+	int	min_pos;
 
 	while (a->top)
 	{
-		min = find_min_value(a);
-		while (a->top->value != min)
-			ra(a, bench);
+		min_pos = find_min_position(a);
+		if (min_pos <= a->size / 2)
+		{
+			while (min_pos-- > 0)
+				ra(a, bench);
+		}
+		else
+		{
+			min_pos = a->size - min_pos;
+			while (min_pos-- > 0)
+				rra(a, bench);
+		}
 		pb(a, b, bench);
 	}
 	while (b->top)

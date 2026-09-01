@@ -28,7 +28,7 @@ static int	get_max_index(t_stack *stack)
 	return (max);
 }
 
-static int	get_bits(int max)
+static int	get_max_bits(int max)
 {
 	int	bits;
 
