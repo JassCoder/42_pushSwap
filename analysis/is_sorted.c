@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/28 10:34:12 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/28 10:34:12 by jsingh           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   is_sorted.c                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/08/28 10:34:12 by username         #+#    #+#              */
+/*   Updated: 2026/09/03 12:57:05 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_stack *stack)
 	if (!stack || stack->size < 2)
 		return (0);
 	current = stack->top;
-	while (current)
+	while (current->next)
 	{
 		if (current->value > current->next->value)
 			return (0);
