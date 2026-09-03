@@ -58,6 +58,11 @@ static void	putnbr_fd(int n, int fd)
 void	print_benchmark(t_config *config, double disorder)
 {
 	(void)disorder;
+	putstr_fd("Disorder: ",2);
+	putnbr_fd((disorder*1000)/10, 2);
+	putstr_fd(".", 2);
+	putnbr_fd((int)(disorder*1000)%100,2);
+	putstr_fd("%\n",2);
 	putstr_fd("Strategy: ", 2);
 	putstr_fd(strategy_name(config->strategy), 2);
 	putstr_fd("\nComplexity: ", 2);
