@@ -17,16 +17,10 @@ void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 	double	disorder;
 
 	disorder = calculate_disorder(a);
-	if (disorder < 0.1)
+	if (disorder < 0.2)
 		simple_sort(a, b, bench);
-	else if(a->size < 430)
+	else if(a->size < 430 && disorder < 0.5)
 		medium_sort(a,b,bench);
 	else
 		complex_sort(a, b, bench);
-	// if (disorder < 0.20)
-	// 	simple_sort(a, b, bench);
-	// else if (disorder < 0.50 )
-	// 	medium_sort(a, b, bench);
-	// else
-	// 	complex_sort(a, b, bench);
 }
