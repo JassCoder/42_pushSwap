@@ -6,7 +6,7 @@
 /*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/08/28 10:34:12 by username         #+#    #+#              */
-/*   Updated: 2026/09/03 12:57:05 by username        ###   ########.fr        */
+/*   Updated: 2026/09/03 13:16:05 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	is_sorted(t_stack *stack)
 {
 	t_node	*current;
 
-	if (!stack || stack->size < 2)
+	if (!stack)
 		return (0);
+	if (stack->size == 1)
+		return (1);
 	current = stack->top;
 	while (current->next)
 	{
