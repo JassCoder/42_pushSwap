@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/01 15:04:47 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/03 13:37:35 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	sa(t_stack *a, t_bench *bench);
 void	sb(t_stack *b, t_bench *bench);
 void	ss(t_stack	*a, t_stack *b, t_bench *bench);
 void	pb(t_stack *a, t_stack *b, t_bench *bench);
-void	pa(t_stack *b, t_stack *a, t_bench *bench);
+void	pa(t_stack *a, t_stack *b, t_bench *bench);
 void	ra(t_stack *a, t_bench *bench);
 void	rb(t_stack *b, t_bench *bench);
 void	rr(t_stack *a, t_stack *b, t_bench *bench);
