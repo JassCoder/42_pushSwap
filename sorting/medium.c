@@ -60,6 +60,8 @@ static void	push_chunks(t_stack *a, t_stack *b, t_bench *bench)
 		if (a->top->index < chunk_end)
 		{
 			pb(a, b, bench);
+			if (b->top->index < chunk_end - chunk_size / 2)
+				rb(b, bench);
 			if (b->size == chunk_end)
 				chunk_end += chunk_size;
 		}
