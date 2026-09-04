@@ -501,8 +501,6 @@ Calling the program without numbers produces no output:
 │   ├── stack_free.c
 │   ├── stack_init.c
 │   └── stack_utils.c
-│
-└── ft_printf/
 ```
 
 ---
