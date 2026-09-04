@@ -12,22 +12,6 @@
 
 #include "push_swap.h"
 
-static int	get_max_index(t_stack *stack)
-{
-	int		max;
-	t_node	*node;
-
-	node = stack->top;
-	max = node->index;
-	while (node)
-	{
-		if (node->index > max)
-			max = node->index;
-		node = node->next;
-	}
-	return (max);
-}
-
 static int	get_max_bits(int max)
 {
 	int	bits;
@@ -38,20 +22,13 @@ static int	get_max_bits(int max)
 	return (bits);
 }
 
-void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
+static void process_a(t_stack *a, t_stack *b, t_bench *bench, int bit)
 {
-	int	size;
-	int	max_bits;
-	int	bit;
-	int	i;
+	int i;
+	int size;
 
-	assign_index(a);
-	size = a->size;
-	max_bits = get_max_bits(get_max_index(a));
-	bit = 0;
-	while (bit < max_bits)
-	{
-		i = 0;
+	i = 0;
+		size = a->size;
 		while (i < size)
 		{
 			if (((a->top->index >> bit) & 1) == 0)
@@ -60,8 +37,47 @@ void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
 				ra(a, bench);
 			i++;
 		}
-		while (b->top)
-			pa(a, b, bench);
+}
+
+static void	process_b(t_stack *a, t_stack *b, t_bench *bench, int bit, int max_bits)
+{
+	int	i;
+	int b_size;
+
+	i = 0;
+	b_size = b->size;
+	if (bit + 1 < max_bits)
+		{
+			b_size = b->size;
+			i = 0;
+			while (i < b_size)
+			{
+				if (((b->top->index >> (bit + 1)) & 1) == 1)
+					pa(a, b, bench);
+				else
+					rb(b, bench);
+				i++;
+			}
+		}
+		else
+		{ 
+			while (b->top)
+				pa(a,b,bench);
+		}
+}
+
+void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
+{
+	int	max_bits;
+	int	bit;
+
+	assign_index(a);
+	max_bits = get_max_bits(a->size - 1);
+	bit = 0;
+	while (bit < max_bits)
+	{
+		process_a(a, b, bench, bit);
+		process_b(a, b, bench, bit, max_bits);
 		bit++;
 	}
 }
