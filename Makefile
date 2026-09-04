@@ -12,13 +12,9 @@
 
 NAME = push_swap
 
-FT_PRINTF_DIR = ft_printf
-FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I. -I$(FT_PRINTF_DIR)
-LDFLAGS = -L$(FT_PRINTF_DIR) -lftprintf
+INCLUDES = -I.
 
 SRCS =	main.c \
 		parsing/parse_args.c \
@@ -49,28 +45,23 @@ OBJS = $(SRCS:.c=.o)
 
 HEADERS = push_swap.h
 
-all: $(FT_PRINTF_LIB) $(NAME)
+all: $(NAME)
 
-$(FT_PRINTF_LIB):
-			make -C $(FT_PRINTF_DIR)
-
-$(NAME): $(OBJS) $(FT_PRINTF_LIB)
-		$(CC) $(CFLAGS) $(OBJS) $(FT_PRINTF_LIB) $(LDFLAGS) -o $(NAME)
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c $(HEADERS)
 		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-clean: 
-		make -C $(FT_PRINTF_DIR) clean
+clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		make -C $(FT_PRINTF_DIR) fclean
 		rm -f $(NAME)
 
 re: fclean all
 
-test: $(FT_PRINTF_LIB)
-		$(CC) main.c $(LDFLAGS) -I$(FT_PRINTF_DIR) -o test_push_swap
+test:
+		$(CC) $(CFLAGS) $(INCLUDES) main.c -o test_push_swap
 
 .PHONY: all clean fclean re
