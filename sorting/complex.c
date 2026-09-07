@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   complex.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 23:19:41 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/30 23:19:41 by jsingh           ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   complex.c                                         :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/07 13:42:36 by username         #+#    #+#              */
+/*   Updated: 2026/09/07 13:47:26 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,48 +22,49 @@ static int	get_max_bits(int max)
 	return (bits);
 }
 
-static void process_a(t_stack *a, t_stack *b, t_bench *bench, int bit)
-{
-	int i;
-	int size;
-
-	i = 0;
-		size = a->size;
-		while (i < size)
-		{
-			if (((a->top->index >> bit) & 1) == 0)
-				pb(a, b, bench);
-			else
-				ra(a, bench);
-			i++;
-		}
-}
-
-static void	process_b(t_stack *a, t_stack *b, t_bench *bench, int bit, int max_bits)
+static void	process_a(t_stack *a, t_stack *b, t_bench *bench, int bit)
 {
 	int	i;
-	int b_size;
+	int	size;
+
+	i = 0;
+	size = a->size;
+	while (i < size)
+	{
+		if (((a->top->index >> bit) & 1) == 0)
+			pb(a, b, bench);
+		else
+			ra(a, bench);
+		i++;
+	}
+}
+
+static void process_b(t_stack * a, t_stack * b, t_bench * bench, int bit,
+	int	max_bits)
+{
+	int	i;
+	int	b_size;
 
 	i = 0;
 	b_size = b->size;
 	if (bit + 1 < max_bits)
+	{
+		b_size = b->size;
+		i = 0;
+		while (i < b_size)
 		{
-			b_size = b->size;
-			i = 0;
-			while (i < b_size)
-			{
-				if (((b->top->index >> (bit + 1)) & 1) == 1)
-					pa(a, b, bench);
-				else
-					rb(b, bench);
-				i++;
-			}
+			if (((b->top->index >> (bit + 1)) & 1) == 1)
+				pa(a, b, bench);
+			else
+				rb(b, bench);
+			i++;
 		}
-		else
-		{ 
-			while (b->top)
-				pa(a,b,bench);
-		}
+	}
+	else
+	{
+		while (b->top)
+			pa(a, b, bench);
+	}
 }
 
 void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
@@ -71,6 +72,11 @@ void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
 	int	max_bits;
 	int	bit;
 
+	if (a->size <= 3)
+	{
+		small_sort(a, bench);
+		return ;
+	}
 	assign_index(a);
 	max_bits = get_max_bits(a->size - 1);
 	bit = 0;

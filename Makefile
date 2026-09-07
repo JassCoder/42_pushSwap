@@ -36,6 +36,7 @@ SRCS =	main.c \
 		analysis/is_sorted.c \
 		analysis/disorder.c \
 		analysis/assign_index.c \
+		sorting/small.c \
 		sorting/simple.c \
 		sorting/medium.c \
 		sorting/complex.c \

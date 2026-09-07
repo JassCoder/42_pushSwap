@@ -6,7 +6,7 @@
 /*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/04 14:26:27 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/09/07 13:43:37 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node		*top;
-	t_node		*bottom;
-	int			size;
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
 }	t_stack;
 
 typedef enum e_strategy
@@ -64,7 +64,7 @@ typedef struct s_config
 void	stack_init(t_stack *stack);
 void	clear_stack(t_stack *stack);
 /* Stack Utils*/
-int		append_node(t_stack *stack, int value);
+int	append_node(t_stack *stack, int value);
 /* Parsing */
 void	config_init(t_config *config);
 int		parse_flag(char *arg, t_config *config);
@@ -85,20 +85,21 @@ void	print_benchmark(t_config *config, double disorder);
 /*Operations swap / push / Rotate */
 void	sa(t_stack *a, t_bench *bench);
 void	sb(t_stack *b, t_bench *bench);
-void	ss(t_stack	*a, t_stack *b, t_bench *bench);
+void	ss(t_stack *a, t_stack *b, t_bench *bench);
 void	pb(t_stack *a, t_stack *b, t_bench *bench);
 void	pa(t_stack *a, t_stack *b, t_bench *bench);
 void	ra(t_stack *a, t_bench *bench);
 void	rb(t_stack *b, t_bench *bench);
 void	rr(t_stack *a, t_stack *b, t_bench *bench);
-void    rra(t_stack *a, t_bench *bench);
-void    rrb(t_stack *b, t_bench *bench);
-void    rrr(t_stack *a, t_stack *b, t_bench *bench);
+void	rra(t_stack *a, t_bench *bench);
+void	rrb(t_stack *b, t_bench *bench);
+void	rrr(t_stack *a, t_stack *b, t_bench *bench);
 /* Analysis */
 int		is_sorted(t_stack *stack);
 double	calculate_disorder(t_stack *stack);
 void	assign_index(t_stack *stack);
 /* Sorting */
+void	small_sort(t_stack *a, t_bench *bench);
 void	simple_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	medium_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	complex_sort(t_stack *a, t_stack *b, t_bench *bench);
