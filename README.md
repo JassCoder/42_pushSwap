@@ -267,22 +267,34 @@ Indexes:   3   0   2   1
 The algorithm processes these indexes one binary bit at a time, starting
 with the least significant bit.
 
-For every element:
+During each pass, every element currently in Stack A is partitioned according
+to the active bit:
 
 ```text
-current bit = 0  ->  pb
-current bit = 1  ->  ra
+active bit = 0  ->  pb
+active bit = 1  ->  ra
 ```
 
-After every bit pass, all elements in Stack B are returned to Stack A using
-`pa`.
+Stack B is then partitioned in advance using the next significant bit:
 
-The process repeats for each significant bit required to represent the
-largest index.
+```text
+next bit = 1  ->  pa
+next bit = 0  ->  rb
+```
+
+This look-ahead step returns elements needed by the next pass to Stack A while
+keeping the remaining group in Stack B. On the final bit, when no next bit
+exists, every element left in Stack B is returned to Stack A with `pa`.
+
+Each bit pass processes every element at most a constant number of times. As
+the normalized indexes require O(log n) bits, the strategy generates
+O(n log n) Push_swap operations and uses O(n) space for the linked-list
+stacks.
 
 ### Why this algorithm?
 
-Binary radix sort maps naturally to Push_swap operations.
+Binary radix sort maps naturally to Push_swap operations, and partitioning
+Stack B by the next bit avoids returning every element after each pass.
 
 The two stacks can represent the two possible states of a binary digit,
 while `pb`, `pa`, and `ra` allow elements to be partitioned without requiring
