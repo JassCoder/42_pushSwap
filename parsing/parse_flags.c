@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 23:09:22 by jsingh            #+#    #+#             */
-/*   Updated: 2026/09/08 09:25:21 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/08 11:29:14 by mszkudla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	config_init(t_config *config)
 {
 	config->strategy = ADAPTIVE;
-	config->strategy = ADAPTIVE;
+	config->selected = ADAPTIVE;
 	config->bench = 0;
 	bench_init(&config->count);
 }

@@ -36,6 +36,11 @@ int	parse_number_group(char *arg, t_stack *a)
 	tokens = ft_split(arg, ' ');
 	if (!tokens)
 		return (0);
+	if (!tokens[0])
+	{
+		free_split(tokens);
+		return (0);
+	}
 	i = 0;
 	while (tokens[i])
 	{
