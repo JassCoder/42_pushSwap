@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/08 08:20:21 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/08 09:26:58 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_bench
 typedef struct s_config
 {
 	t_strategy	strategy;
+	t_strategy	selected;
 	int			bench;
 	t_bench		count;
 }	t_config;
@@ -106,6 +107,6 @@ void	small_sort(t_stack *a, t_bench *bench);
 void	simple_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	medium_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	complex_sort(t_stack *a, t_stack *b, t_bench *bench);
-void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench);
+void	adaptive_sort(t_stack *a, t_stack *b, t_config *config);
 
 #endif

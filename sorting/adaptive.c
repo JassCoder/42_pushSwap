@@ -12,15 +12,24 @@
 
 #include "push_swap.h"
 
-void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
+void	adaptive_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	double	disorder;
 
 	disorder = calculate_disorder(a);
 	if (disorder < 0.2)
-		simple_sort(a, b, bench);
+	{
+		config->selected = SIMPLE;
+		simple_sort(a, b, &config->count);
+	}
 	else if (disorder < 0.5)
-		medium_sort(a, b, bench);
+	{
+		config->selected = MEDIUM;
+		medium_sort(a, b, &config->count);
+	}
 	else
-		complex_sort(a, b, bench);
+	{
+		config->selected = COMPLEX;
+		complex_sort(a, b, &config->count);
+	}
 }

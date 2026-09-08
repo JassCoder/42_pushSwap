@@ -12,27 +12,51 @@
 
 #include "push_swap.h"
 
+static int	get_sign(const char *str, int *i)
+{
+	int	sign;
+
+	sign = 1;
+	if (str[*i] == '-' || str[*i] == '+')
+	{
+		if (str[*i] == '-')
+			sign = -1;
+		(*i)++;
+	}
+	return (sign);
+}
+
+static int	will_overflow(long result, int digit, long limit)
+{
+	if (result > limit / 10)
+		return (1);
+	if (result == limit / 10 && digit > limit % 10)
+		return (1);
+	return (0);
+}
+
 long	ft_atol(const char *str)
 {
 	long	result;
+	long	limit;
 	int		sign;
 	int		i;
+	int		digit;
 
 	i = 0;
-	sign = 1;
 	result = 0;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
+	sign = get_sign(str, &i);
+	limit = 2147483647L;
+	if (sign == -1)
+		limit = 2147483648L;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		digit = str[i++] - '0';
+		if (will_overflow(result, digit, limit))
+			return (2147483648L);
+		result = result * 10 + digit;
 	}
 	return (result * sign);
 }

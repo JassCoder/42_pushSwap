@@ -58,9 +58,9 @@ void	print_benchmark(t_config *config, double disorder)
 {
 	print_disorder(disorder);
 	putstr_fd("Strategy: ", 2);
-	putstr_fd(strategy_name(config->strategy), 2);
+	putstr_fd(strategy_name(config->selected), 2);
 	putstr_fd("\nComplexity: ", 2);
-	putstr_fd(strategy_complexity(config->strategy, disorder), 2);
+	putstr_fd(strategy_complexity(config->selected, disorder), 2);
 	putstr_fd("\nTotal operations: ", 2);
 	putnbr_fd(config->count.total, 2);
 	putstr_fd("\n", 2);

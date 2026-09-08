@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_arg.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/09 22:15:24 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/09 22:15:24 by jsingh           ###   ########.fr       */
+/*   Created: 2026/09/08 10:23:39 by jsingh            #+#    #+#             */
+/*   Updated: 2026/09/08 10:23:39 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -23,7 +21,7 @@ static void	run_strategy(t_stack *a, t_stack *b, t_config *config)
 	else if (config->strategy == COMPLEX)
 		complex_sort(a, b, &config->count);
 	else
-		adaptive_sort(a, b, &config->count);
+		adaptive_sort(a, b, config);
 }
 
 int	main(int argc, char **argv)
