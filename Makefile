@@ -11,10 +11,11 @@
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I.
+INCLUDES = -I. -Ibonus
 
 SRCS =	main.c \
 		parsing/parse_args.c \
@@ -41,29 +42,53 @@ SRCS =	main.c \
 		sorting/simple.c \
 		sorting/medium.c \
 		sorting/complex.c \
-		sorting/adaptive.c \
+		sorting/adaptive.c
 
 OBJS = $(SRCS:.c=.o)
 
-HEADERS = push_swap.h
+BONUS_SRCS =	bonus/checker_bonus.c \
+				bonus/checker_read_bonus.c \
+				bonus/checker_execute_bonus.c \
+				bonus/checker_swap_bonus.c \
+				bonus/checker_push_bonus.c \
+				bonus/checker_rotate_bonus.c \
+				bonus/checker_reverse_bonus.c \
+				parsing/parse_args.c \
+				parsing/parse_flags.c \
+				parsing/parse_utils.c \
+				parsing/parse_free.c \
+				parsing/validate.c \
+				parsing/ft_utils_1.c \
+				parsing/ft_split.c \
+				stack/stack_init.c \
+				stack/stack_utils.c \
+				stack/stack_free.c \
+				benchmark/operation_count.c \
+				analysis/is_sorted.c
+
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+HEADERS = push_swap.h bonus/push_swap_bonus.h
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
 
 %.o: %.c $(HEADERS)
-		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-		rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
-test:
-		$(CC) $(CFLAGS) $(INCLUDES) main.c -o test_push_swap
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

@@ -224,33 +224,37 @@ fi
 rm -f operations.tmp benchmark.tmp
 
 # --------------------------------------------------
-title "10. OFFICIAL CHECKER"
+title "15. BONUS CHECKER"
 # --------------------------------------------------
 
-if [ -x "./checker_linux" ]; then
+if make bonus >/dev/null 2>&1 && [ -x "./checker" ]; then
+	pass "checker builds"
 
-	for strategy in simple medium complex adaptive; do
+	ARG="4 67 3 87 23"
+	RESULT=$($PS $ARG | ./checker $ARG)
 
-		ARG="4 67 3 87 23"
+	if [ "$RESULT" = "OK" ]; then
+		pass "checker accepts valid push_swap output"
+	else
+		fail "checker valid output result: $RESULT"
+	fi
 
-		RESULT=$($PS --$strategy $ARG | ./checker_linux $ARG)
+	RESULT=$(printf "banana\n" | ./checker 3 2 1 2>/dev/null)
 
-		if [ "$RESULT" = "OK" ]; then
-			pass "$strategy checker test"
-		else
-			fail "$strategy checker result: $RESULT"
-		fi
-	done
-
+	if [ -z "$RESULT" ]; then
+		pass "checker rejects invalid instruction"
+	else
+		fail "checker invalid instruction behavior"
+	fi
 else
-	echo "checker_linux not found - skipping checker tests"
+	fail "checker build failed"
 fi
 
 # --------------------------------------------------
-title "11. RANDOM CORRECTNESS"
+title "15. BONUS CHECKER RANDOM CORRECTNESS"
 # --------------------------------------------------
 
-if [ -x "./checker_linux" ]; then
+if [ -x "./checker" ]; then
 
 	for strategy in simple medium complex adaptive; do
 
@@ -258,9 +262,9 @@ if [ -x "./checker_linux" ]; then
 
 		for i in $(seq 1 20); do
 
-			ARG=$(shuf -i -10000-10000 -n 100 | tr '\n' ' ')
+			ARG=$(seq -10000 10000 | shuf -n 100 | tr '\n' ' ')
 
-			RESULT=$($PS --$strategy $ARG | ./checker_linux $ARG)
+			RESULT=$($PS --$strategy $ARG | ./checker $ARG)
 
 			if [ "$RESULT" != "OK" ]; then
 				ok=0
@@ -270,13 +274,15 @@ if [ -x "./checker_linux" ]; then
 		done
 
 		if [ $ok -eq 1 ]; then
-			pass "$strategy passed 20 random x100 tests"
+			pass "bonus checker: $strategy passed 20 random x100 tests"
 		else
-			fail "$strategy failed random correctness"
+			fail "bonus checker: $strategy failed random correctness"
 		fi
 
 	done
 
+else
+	fail "bonus checker executable not found"
 fi
 
 # --------------------------------------------------
