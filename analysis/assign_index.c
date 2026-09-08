@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void    assign_index(t_stack *stack)
+void	assign_index(t_stack *stack)
 {
 	t_node	*node;
 	t_node	*current;

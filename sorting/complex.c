@@ -39,32 +39,27 @@ static void	process_a(t_stack *a, t_stack *b, t_bench *bench, int bit)
 	}
 }
 
-static void process_b(t_stack * a, t_stack * b, t_bench * bench, int bit,
-	int	max_bits)
+static void	process_b(t_stack *a, t_stack *b, t_bench *bench, int bit)
 {
 	int	i;
 	int	b_size;
 
 	i = 0;
 	b_size = b->size;
-	if (bit + 1 < max_bits)
+	while (i < b_size)
 	{
-		b_size = b->size;
-		i = 0;
-		while (i < b_size)
-		{
-			if (((b->top->index >> (bit + 1)) & 1) == 1)
-				pa(a, b, bench);
-			else
-				rb(b, bench);
-			i++;
-		}
-	}
-	else
-	{
-		while (b->top)
+		if (((b->top->index >> (bit + 1)) & 1) == 1)
 			pa(a, b, bench);
+		else
+			rb(b, bench);
+		i++;
 	}
+}
+
+static void	push_all_back(t_stack *a, t_stack *b, t_bench *bench)
+{
+	while (b->top)
+		pa(a, b, bench);
 }
 
 void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
@@ -83,7 +78,10 @@ void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
 	while (bit < max_bits)
 	{
 		process_a(a, b, bench, bit);
-		process_b(a, b, bench, bit, max_bits);
+		if (bit + 1 < max_bits)
+			process_b(a, b, bench, bit);
+		else
+			push_all_back(a, b, bench);
 		bit++;
 	}
 }

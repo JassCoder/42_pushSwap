@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-void    free_split(char **tokens)
+void	free_split(char **tokens)
 {
-    int i;
+	int	i;
 
-    if (!tokens)
-        return ;
-    i = 0;
-    while (tokens[i])
-    {
-        free(tokens[i]);
-        i++;
-    }
-    free(tokens);
+	if (!tokens)
+		return ;
+	i = 0;
+	while (tokens[i])
+	{
+		free(tokens[i]);
+		i++;
+	}
+	free(tokens);
 }

@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/08 07:47:55 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/08 08:20:21 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_config
 void	stack_init(t_stack *stack);
 void	clear_stack(t_stack *stack);
 /* Stack Utils*/
-int	append_node(t_stack *stack, int value);
+int		append_node(t_stack *stack, int value);
 /* Parsing */
 void	config_init(t_config *config);
 int		parse_flag(char *arg, t_config *config);

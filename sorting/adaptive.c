@@ -20,7 +20,7 @@ void	adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 	if (disorder < 0.2)
 		simple_sort(a, b, bench);
 	else if (disorder < 0.5)
-		medium_sort(a,b,bench);
+		medium_sort(a, b, bench);
 	else
 		complex_sort(a, b, bench);
 }

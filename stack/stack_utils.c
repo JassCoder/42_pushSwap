@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 15:31:30 by username          #+#    #+#             */
-/*   Updated: 2026/09/04 14:26:27 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/09/08 08:19:27 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ int	append_node(t_stack *stack, int value)
 	stack->size++;
 	return (1);
 }
-

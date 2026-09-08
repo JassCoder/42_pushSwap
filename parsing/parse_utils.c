@@ -36,23 +36,24 @@ long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
+
 int	is_int_range(long value)
 {
-    if (value < -2147483648L || value > 2147483647L)
+	if (value < -2147483648L || value > 2147483647L)
 		return (0);
 	return (1);
 }
-int has_duplicate(t_stack *stack, int value)
-{
-    t_node *current;
 
-    current = stack->top;
-    while (current)
-    {
-        if (current->value == value)
-            return (1);
-        current = current->next;
-    }
-    return (0);
+int	has_duplicate(t_stack *stack, int value)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while (current)
+	{
+		if (current->value == value)
+			return (1);
+		current = current->next;
+	}
+	return (0);
 }
-    

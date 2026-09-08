@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 23:09:22 by jsingh            #+#    #+#             */
-/*   Updated: 2026/08/26 18:28:36 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/08 08:17:29 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	config_init(t_config *config)
 	config->bench = 0;
 	bench_init(&config->count);
 }
+
 int	parse_flag(char *arg, t_config *config)
 {
 	if (ft_strncmp(arg, "--simple", 9) == 0)
