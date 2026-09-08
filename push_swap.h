@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mszkudla <mszkudla@student.42warsaw.pl>    +#+  +:+       +#+        */
+/*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/07 13:43:37 by mszkudla         ###   ########.fr       */
+/*   Updated: 2026/09/08 07:47:55 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int		parse_args(int argc, char **argv, t_stack *a, t_config *config);
 /*Benchmark*/
 void	bench_init(t_bench *count);
 void	print_benchmark(t_config *config, double disorder);
+void	print_moves_count(t_config *config);
+void	putstr_fd(char *str, int fd);
+void	putnbr_fd(int n, int fd);
 /*Operations swap / push / Rotate */
 void	sa(t_stack *a, t_bench *bench);
 void	sb(t_stack *b, t_bench *bench);

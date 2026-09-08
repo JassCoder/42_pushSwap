@@ -33,6 +33,7 @@ SRCS =	main.c \
 		operations/reverse_rotate.c \
 		benchmark/operation_count.c \
 		benchmark/report.c \
+		benchmark/report_utils.c \
 		analysis/is_sorted.c \
 		analysis/disorder.c \
 		analysis/assign_index.c \
