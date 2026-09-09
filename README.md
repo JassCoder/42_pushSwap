@@ -32,6 +32,24 @@ about the selected strategy and generated operations.
 
 ---
 
+## Responsibilities
+
+| Area | Main files or directories | Responsible |
+| ---- | ------------------------- | ----------- |
+| Argument parsing and validation | `parsing/` | jsingh |
+| Stack data structure and memory management | `stack/` | mszkudla |
+| Push_swap operations | `operations/` | mszkudla |
+| Input analysis and index normalization | `analysis/` | jsingh / mszkudla |
+| Simple sorting strategy | `sorting/simple.c`, `sorting/small.c` | mszkudla |
+| Medium sorting strategy | `sorting/medium.c` | mszkudla |
+| Complex sorting strategy | `sorting/complex.c` | jsingh |
+| Adaptive strategy selection | `sorting/adaptive.c` | mszkudla |
+| Benchmarking and operation reports | `benchmark/` | jsingh |
+| Bonus checker | `bonus/` | jsingh |
+| Main program and build configuration | `main.c`, `Makefile`, `push_swap.h` | jsingh / mszkudla |
+
+---
+
 ## Features
 
 - Integer argument parsing
