@@ -1,4 +1,6 @@
 .vscode/
 *.o
 push_swap
-checker
+checkerchecker_linux
+err.txt
+out.txt

@@ -36,29 +36,39 @@ static int	find_min_position(t_stack *a)
 	return (min_pos);
 }
 
-void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
+static void	move_min_to_top(t_stack *a, t_bench *bench)
 {
 	int	min_pos;
 
+	min_pos = find_min_position(a);
+	if (min_pos <= a->size / 2)
+	{
+		while (min_pos-- > 0)
+			ra(a, bench);
+	}
+	else
+	{
+		min_pos = a->size - min_pos;
+		while (min_pos-- > 0)
+			rra(a, bench);
+	}
+}
+
+void	simple_sort(t_stack *a, t_stack *b, t_bench *bench)
+{
 	if (a->size <= 3)
 	{
 		small_sort(a, bench);
 		return ;
 	}
+	if (a->size <= 5)
+	{
+		sort_five(a, b, bench);
+		return ;
+	}
 	while (a->top)
 	{
-		min_pos = find_min_position(a);
-		if (min_pos <= a->size / 2)
-		{
-			while (min_pos-- > 0)
-				ra(a, bench);
-		}
-		else
-		{
-			min_pos = a->size - min_pos;
-			while (min_pos-- > 0)
-				rra(a, bench);
-		}
+		move_min_to_top(a, bench);
 		pb(a, b, bench);
 	}
 	while (b->top)

@@ -72,6 +72,11 @@ void	complex_sort(t_stack *a, t_stack *b, t_bench *bench)
 		small_sort(a, bench);
 		return ;
 	}
+	if (a->size <= 5)
+	{
+		sort_five(a, b, bench);
+		return ;
+	}
 	assign_index(a);
 	max_bits = get_max_bits(a->size - 1);
 	bit = 0;
