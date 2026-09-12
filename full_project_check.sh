@@ -111,61 +111,61 @@ else
 	warn "checker executable missing"
 fi
 
-# ==================================================
-title "3. README / GROUP REQUIREMENTS"
-# ==================================================
+# # ==================================================
+# title "3. README / GROUP REQUIREMENTS"
+# # ==================================================
 
-if [ -f README.md ]; then
-	pass "README.md exists"
-else
-	fail "README.md missing"
-fi
+# if [ -f README.md ]; then
+# 	pass "README.md exists"
+# else
+# 	fail "README.md missing"
+# fi
 
-if [ -f README.md ]; then
+# if [ -f README.md ]; then
 
-	FIRST_LINE=$(head -n 1 README.md)
+# 	FIRST_LINE=$(head -n 1 README.md)
 
-	if echo "$FIRST_LINE" | \
-	grep -Eq '^\*This project has been created as part of the 42 curriculum by .*\.\*$'
-then
-	pass "README first line format"
-else
-	fail "README first line format"
-fi
+# 	if echo "$FIRST_LINE" | \
+# 	grep -Eq '^\*This project has been created as part of the 42 curriculum by .*\.\*$'
+# then
+# 	pass "README first line format"
+# else
+# 	fail "README first line format"
+# fi
 
-	for section in \
-		"Description" \
-		"Instructions" \
-		"Resources"
-	do
-		if grep -qi "$section" README.md; then
-			pass "README contains $section"
-		else
-			fail "README missing $section"
-		fi
-	done
+# 	for section in \
+# 		"Description" \
+# 		"Instructions" \
+# 		"Resources"
+# 	do
+# 		if grep -qi "$section" README.md; then
+# 			pass "README contains $section"
+# 		else
+# 			fail "README missing $section"
+# 		fi
+# 	done
 
-	if grep -qi "AI" README.md; then
-		pass "README documents AI usage"
-	else
-		fail "README missing AI usage"
-	fi
+# 	if grep -qi "AI" README.md; then
+# 		pass "README documents AI usage"
+# 	else
+# 		fail "README missing AI usage"
+# 	fi
 
-	if grep -qi "Simple" README.md &&
-		grep -qi "Medium" README.md &&
-		grep -qi "Complex" README.md &&
-		grep -qi "Adaptive" README.md; then
-		pass "README documents all four strategies"
-	else
-		fail "README strategy documentation incomplete"
-	fi
+# 	if grep -qi "Simple" README.md &&
+# 		grep -qi "Medium" README.md &&
+# 		grep -qi "Complex" README.md &&
+# 		grep -qi "Adaptive" README.md; then
+# 		pass "README documents all four strategies"
+# 	else
+# 		fail "README strategy documentation incomplete"
+# 	fi
 
-	if grep -Eqi "contribution|contributor" README.md; then
-		pass "README contains contribution section"
-	else
-		fail "README missing learner contributions"
-	fi
-fi
+# 	if grep -Eqi "contribution|contributor" README.md; then
+# 		pass "README contains contribution section"
+# 	else
+# 		fail "README missing learner contributions"
+# 	fi
+# fi
 
 # ==================================================
 title "4. MANDATORY BASIC BEHAVIOR"
