@@ -55,11 +55,6 @@ static void	push_chunks(t_stack *a, t_stack *b, t_bench *bench)
 
 	chunk_size = get_chunk_size(a);
 	chunk_end = chunk_size;
-	if (a->size <= 3)
-	{
-		small_sort(a, bench);
-		return ;
-	}
 	while (a->top)
 	{
 		if (a->top->index < chunk_end)
@@ -99,6 +94,16 @@ static void	push_back(t_stack *a, t_stack *b, t_bench *bench)
 
 void	medium_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
+	if (a->size <= 3)
+	{
+		small_sort(a, bench);
+		return ;
+	}
+	if (a->size <= 5)
+	{
+		sort_five(a, b, bench);
+		return ;
+	}
 	assign_index(a);
 	push_chunks(a, b, bench);
 	push_back(a, b, bench);

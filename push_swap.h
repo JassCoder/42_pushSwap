@@ -6,7 +6,7 @@
 /*   By: jsingh <jsingh@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 19:16:01 by username          #+#    #+#             */
-/*   Updated: 2026/09/08 09:26:58 by jsingh           ###   ########.fr       */
+/*   Updated: 2026/09/12 01:51:51 by jsingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ double	calculate_disorder(t_stack *stack);
 void	assign_index(t_stack *stack);
 /* Sorting */
 void	small_sort(t_stack *a, t_bench *bench);
+void	sort_five(t_stack *a, t_stack *b, t_bench *bench);
 void	simple_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	medium_sort(t_stack *a, t_stack *b, t_bench *bench);
 void	complex_sort(t_stack *a, t_stack *b, t_bench *bench);
